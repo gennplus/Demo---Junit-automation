@@ -3,26 +3,31 @@ package org.example.utilities;
 public class SinglyLinkedList<T> {
     private final SinglyLinkedList.Node<T> root;
 
-    public SinglyLinkedList(Node<T> root) {
-        this.root = root;
+    public SinglyLinkedList(T rootNodeValue) {
+        this.root = new Node<>(rootNodeValue, null);
     }
 
-    public SinglyLinkedList<T> addElement(Node<T> node) {
+    public SinglyLinkedList<T> addElement(T nodeValue) {
         Node<T> currentNode = root;
         while (currentNode.next != null) {
             currentNode = currentNode.next;
         }
-        currentNode.next = node;
+        currentNode.next = new Node<>(nodeValue, null);
         return this;
     }
 
-    public void printList() {
+    @Override
+    public String toString() {
         Node<T> currentNode = root;
+        StringBuilder stringBuilder = new StringBuilder();
         while (currentNode.next != null) {
-            System.out.print(currentNode.item.toString());
+            stringBuilder.append(currentNode.item.toString()).append(", ");
             currentNode = currentNode.next;
         }
-        System.out.println(currentNode.item.toString());
+
+        stringBuilder.append(currentNode.item.toString());
+
+        return stringBuilder.toString();
     }
 
     /**
