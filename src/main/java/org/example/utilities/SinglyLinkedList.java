@@ -20,6 +20,21 @@ public class SinglyLinkedList<T> {
         return this;
     }
 
+    public int size() {
+
+        if (Objects.isNull(root)) {
+            return 0;
+        }
+
+        Node<T> currentNode = root;
+        int counter = 1;
+        while (currentNode.next != null) {
+            currentNode = currentNode.next;
+            counter++;
+        }
+        return counter;
+    }
+
     public SinglyLinkedList<T> addElement(T nodeValue) {
         Node<T> currentNode = root;
         while (currentNode.next != null) {

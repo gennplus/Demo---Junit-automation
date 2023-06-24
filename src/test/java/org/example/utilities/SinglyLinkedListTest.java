@@ -22,6 +22,7 @@ class SinglyLinkedListTest {
 
         // THEN
         Assertions.assertEquals("A, B", list.toString());
+        Assertions.assertEquals(2, list.size());
     }
 
     @Test
@@ -65,6 +66,23 @@ class SinglyLinkedListTest {
     }
 
     @Test
+    void size() {
+        SinglyLinkedList<String> list = new SinglyLinkedList<>("A")
+                .addElement("B")
+                .addElement("C");
+
+        Assertions.assertEquals(3, list.size());
+    }
+
+    @Test
+    void sizeOfEmptyList() {
+        SinglyLinkedList<String> list = new SinglyLinkedList<>("A")
+                .flush();
+
+        Assertions.assertEquals(0, list.size());
+    }
+
+    @Test
     void removeCentralNodeFromListOfTreeNodes() {
         // GIVEN
         SinglyLinkedList<String> list = new SinglyLinkedList<>("A")
@@ -80,6 +98,7 @@ class SinglyLinkedListTest {
 
         //THEN
         Assertions.assertEquals("A, C", list.toString());
+        Assertions.assertEquals(2, list.size());
     }
 
     @Test
@@ -100,6 +119,7 @@ class SinglyLinkedListTest {
 
         //THEN
         Assertions.assertEquals("A, D", list.toString());
+        Assertions.assertEquals(2, list.size());
     }
 
     @Test
@@ -116,6 +136,7 @@ class SinglyLinkedListTest {
 
         //THEN
         Assertions.assertEquals("List is empty", list.toString());
+        Assertions.assertEquals(0, list.size());
     }
 
     @Test
@@ -133,6 +154,7 @@ class SinglyLinkedListTest {
 
         //THEN
         Assertions.assertEquals("List is empty", list.toString());
+        Assertions.assertEquals(0, list.size());
     }
 
     @Test
@@ -151,15 +173,16 @@ class SinglyLinkedListTest {
 
         //THEN
         Assertions.assertEquals("1, 3", list.toString());
+        Assertions.assertEquals(2, list.size());
     }
 
     @Test
     void removeCentralNodeFromEmptyList() {
         // GIVEN
         SinglyLinkedList<String> list = new SinglyLinkedList<>("A").flush();
-        if (!Objects.equals(list.toString(), "List is empty")) {
+        if (list.size() != 0) {
             throw new NoSuchElementException("""
-                    After flushing a list toString() should return "List is empty".""");
+                    After flushing a list should be empty.""");
         }
 
         // WHEN
@@ -167,6 +190,7 @@ class SinglyLinkedListTest {
 
         //THEN
         Assertions.assertEquals("List is empty", list.toString());
+        Assertions.assertEquals(0, list.size());
     }
 
     @Test
@@ -185,5 +209,6 @@ class SinglyLinkedListTest {
 
         //THEN
         Assertions.assertEquals("Null, Null", list.toString());
+        Assertions.assertEquals(2, list.size());
     }
 }
