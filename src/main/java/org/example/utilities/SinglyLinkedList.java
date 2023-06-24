@@ -59,7 +59,7 @@ public class SinglyLinkedList<T> {
             }
         }
 
-        prevMiddleElement.next = sizeIsOdd ? prevMiddleElement.next.next.next : prevMiddleElement.next.next;
+        prevMiddleElement.next = sizeIsOdd ? prevMiddleElement.next.next : prevMiddleElement.next.next.next;
 
         return this;
     }
