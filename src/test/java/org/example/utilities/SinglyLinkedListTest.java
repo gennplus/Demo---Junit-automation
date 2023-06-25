@@ -63,6 +63,7 @@ class SinglyLinkedListTest {
 
         //THEN
         Assertions.assertEquals("List is empty", list.toString());
+        Assertions.assertEquals(0, list.size());
     }
 
     @Test
