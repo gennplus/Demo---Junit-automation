@@ -1,0 +1,64 @@
+name: Run tests for Task 1
+run-name: ${{ github.actor }} is running the Task 1 tests.
+on:
+  workflow_dispatch:
+
+jobs:
+  smoke_test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Setup Java 17
+        uses: actions/setup-java@v3
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+          cache: maven
+
+      - name: Build with Maven
+        run: mvn --batch-mode --update-snapshots -DskipTests package
+
+      - name: Run smoke test
+        run: mvn test -DrunSuite=**/suites/SmokeTestSuiteForTask1
+
+      - name: Report
+        uses: dorny/test-reporter@v1
+        if: always()
+        with:
+          name: Smoke tests for task 1
+          path: target/surefire-reports/*.xml
+          reporter: java-junit
+          fail-on-error: true
+
+  full_test:
+    needs: smoke_test
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Setup Java 17
+        uses: actions/setup-java@v3
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+          cache: maven
+
+      - name: Build with Maven
+        run: mvn --batch-mode --update-snapshots -DskipTests package
+
+      - name: Run smoke test
+        run: mvn test -DrunSuite=**/suites/FullTestSuiteForTask1
+
+      - name: Report
+        uses: dorny/test-reporter@v1
+        if: always()
+        with:
+          name: Full tests for task 1
+          path: target/surefire-reports/*.xml
+          reporter: java-junit
+          fail-on-error: true
