@@ -29,3 +29,6 @@ jobs:
         if: always()
         with:
           files: target/surefire-reports/*.xml
+          permissions:
+            checks: write
+            pull-requests: write
