@@ -24,11 +24,8 @@ jobs:
       - name: Run smoke test
         run: mvn test -DrunSuite=**/suites/FullTestSuiteForTask2
 
-      - name: Report
-        uses: dorny/test-reporter@v1
+      - name: Publish Test Results
+        uses: EnricoMi/publish-unit-test-result-action@v2
         if: always()
         with:
-          name: Tests for task2
-          path: target/surefire-reports/*.xml
-          reporter: java-junit
-          fail-on-error: true
+          files: target/surefire-reports/*.xml
