@@ -1,4 +1,4 @@
-package org.example.utilities;
+package org.example.tasks;
 
 import java.util.Arrays;
 import java.util.List;

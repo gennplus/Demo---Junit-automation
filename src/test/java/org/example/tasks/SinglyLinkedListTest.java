@@ -1,14 +1,16 @@
-package org.example.utilities;
+package org.example.tasks;
 
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 import java.util.NoSuchElementException;
 import java.util.Objects;
 
-class SinglyLinkedListTest {
+public class SinglyLinkedListTest {
 
     @Test
+    @Tag("smoke_task1")
     void addElement() {
         // GIVEN
         SinglyLinkedList<String> list = new SinglyLinkedList<>("A");
@@ -26,12 +28,14 @@ class SinglyLinkedListTest {
     }
 
     @Test
+    @Tag("smoke_task1")
     void toStringOneItemList() {
         SinglyLinkedList<String> list = new SinglyLinkedList<>("A");
         Assertions.assertEquals("A", list.toString());
     }
 
     @Test
+    @Tag("smoke_task1")
     void toStringThreeItemsList() {
         SinglyLinkedList<String> list = new SinglyLinkedList<>("A")
                 .addElement("B")
@@ -41,12 +45,14 @@ class SinglyLinkedListTest {
     }
 
     @Test
+    @Tag("smoke_task1")
     void toStringEmptyList() {
         SinglyLinkedList<String> list = new SinglyLinkedList<>("A").flush();
         Assertions.assertEquals("List is empty", list.toString());
     }
 
     @Test
+    @Tag("smoke_task1")
     void toStringListOfNulls() {
         SinglyLinkedList<Object> list = new SinglyLinkedList<>(null)
                 .addElement(null);
@@ -54,6 +60,7 @@ class SinglyLinkedListTest {
     }
 
     @Test
+    @Tag("smoke_task1")
     void flush() {
         // GIVEN
         SinglyLinkedList<String> list = new SinglyLinkedList<>("A");
@@ -67,6 +74,7 @@ class SinglyLinkedListTest {
     }
 
     @Test
+    @Tag("smoke_task1")
     void size() {
         SinglyLinkedList<String> list = new SinglyLinkedList<>("A")
                 .addElement("B")
@@ -76,6 +84,7 @@ class SinglyLinkedListTest {
     }
 
     @Test
+    @Tag("smoke_task1")
     void sizeOfEmptyList() {
         SinglyLinkedList<String> list = new SinglyLinkedList<>("A")
                 .flush();
@@ -84,6 +93,7 @@ class SinglyLinkedListTest {
     }
 
     @Test
+    @Tag("full_task1")
     void removeCentralNodeFromListOfTreeNodes() {
         // GIVEN
         SinglyLinkedList<String> list = new SinglyLinkedList<>("A")
@@ -103,6 +113,7 @@ class SinglyLinkedListTest {
     }
 
     @Test
+    @Tag("full_task1")
     void removeCentralNodeFromListOfFourNodes() {
         // GIVEN
         SinglyLinkedList<String> list = new SinglyLinkedList<>("A")
@@ -124,6 +135,7 @@ class SinglyLinkedListTest {
     }
 
     @Test
+    @Tag("full_task1")
     void removeCentralNodeFromListOfOneNodes() {
         // GIVEN
         SinglyLinkedList<String> list = new SinglyLinkedList<>("A");
@@ -141,6 +153,7 @@ class SinglyLinkedListTest {
     }
 
     @Test
+    @Tag("full_task1")
     void removeCentralNodeFromListOfTwoNodes() {
         // GIVEN
         SinglyLinkedList<String> list = new SinglyLinkedList<>("A")
@@ -159,6 +172,7 @@ class SinglyLinkedListTest {
     }
 
     @Test
+    @Tag("full_task1")
     void removeCentralNodeFromListOfTreeIntegerNodes() {
         // GIVEN
         SinglyLinkedList<Integer> list = new SinglyLinkedList<>(1)
@@ -178,6 +192,7 @@ class SinglyLinkedListTest {
     }
 
     @Test
+    @Tag("full_task1")
     void removeCentralNodeFromEmptyList() {
         // GIVEN
         SinglyLinkedList<String> list = new SinglyLinkedList<>("A").flush();
@@ -195,6 +210,7 @@ class SinglyLinkedListTest {
     }
 
     @Test
+    @Tag("full_task1")
     void removeCentralNodeFromListOfNulls() {
         // GIVEN
         SinglyLinkedList<Object> list = new SinglyLinkedList<>(null)

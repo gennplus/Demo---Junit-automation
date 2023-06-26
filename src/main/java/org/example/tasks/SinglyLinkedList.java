@@ -1,4 +1,4 @@
-package org.example.utilities;
+package org.example.tasks;
 
 import java.util.Objects;
 
@@ -108,14 +108,14 @@ public class SinglyLinkedList<T> {
         Node<T> tmpMiddleNodeTwo = null;
         Node<T> currentNode = root;
         Node<T> nodeBeforeMiddle = null;
-        boolean sizeIsOdd = true;
+        boolean isSizeOdd = true;
 
         // Calculate middle nodes
         while (currentNode.next != null) {
             currentNode = currentNode.next;
-            sizeIsOdd = !sizeIsOdd;
+            isSizeOdd = !isSizeOdd;
 
-            if (sizeIsOdd) {
+            if (isSizeOdd) {
                 nodeBeforeMiddle = tmpMiddleNodeOne;
                 tmpMiddleNodeOne = tmpMiddleNodeTwo;
                 tmpMiddleNodeTwo = null;
@@ -131,7 +131,7 @@ public class SinglyLinkedList<T> {
             flush();
         }
         else {
-            nodeBeforeMiddle.next = sizeIsOdd ? nodeBeforeMiddle.next.next : nodeBeforeMiddle.next.next.next;
+            nodeBeforeMiddle.next = isSizeOdd ? nodeBeforeMiddle.next.next : nodeBeforeMiddle.next.next.next;
         }
 
         return this;

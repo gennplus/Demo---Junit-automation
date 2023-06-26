@@ -1,4 +1,4 @@
-package org.example.utilities;
+package org.example.tasks;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
@@ -12,7 +12,7 @@ import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class ArrayFinderTest {
+public class ArrayFinderTest {
 
     private static final String LENGTH_CONSTRAINT_EXCEPTION_MESSAGE = "Length of each array should be exactly 4";
 
